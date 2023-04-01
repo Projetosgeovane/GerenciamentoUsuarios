@@ -1,14 +1,14 @@
-import type { Knex } from "knex";
-import * as dotenv from 'dotenv'
+const dotenv = require("dotenv");
 dotenv.config();
+
 // Update with your config settings.
 
-const config: { [key: string]: Knex.Config } = {
+module.exports = {
   development: {
     client: "mysql2",
     connection: {
       host: process.env.DB_HOST,
-      port: process.env.DB_PORT as unknown as number,
+      port: process.env.DB_PORT,
       user: process.env.DB_USER,
       password: process.env.DB_PASS,
       database: process.env.DB_NAME,
@@ -22,5 +22,3 @@ const config: { [key: string]: Knex.Config } = {
     },
   },
 };
-
-module.exports = config;
